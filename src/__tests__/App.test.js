@@ -4,6 +4,7 @@ import { render, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getEvents } from '../api';
 import App from '../App';
+import NumberOfEvents from '../components/NumberOfEvents';
 
 describe('<App /> component', () => {
   let AppDOM;
@@ -24,12 +25,18 @@ describe('<App /> component', () => {
   })
 });
 
-//integrating App.js CitySearch.js EventList.js
+
 describe('<App /> integration', () => {
+  let AppDOM;
+  beforeEach(() => {
+    AppDOM = render(<App />).container.firstChild;
+  })
+
+  //integrating App.js CitySearch.js EventList.js
   test('renders a list of events matching the city selected by the user', async () => {
     const user = userEvent.setup();
-    const AppComponent = render(<App />);
-    const AppDOM = AppComponent.container.firstChild;
+    // const AppComponent = render(<App />);
+    // const AppDOM = AppComponent.container.firstChild;
 
     const CitySearchDOM = AppDOM.querySelector('#city-search');
     const CitySearchInput = within(CitySearchDOM).queryByRole('textbox');
@@ -51,5 +58,20 @@ describe('<App /> integration', () => {
     allRenderedEventItems.forEach(event => {
       expect(event.textContent).toContain("Berlin, Germany");
     });
+  });
+
+  //integrating App, NumberOfEvents, EventList
+  test('change the number of events rendered after user changes the NOE input', async () => {
+    const user = userEvent.setup();
+
+    const NOEComponent = render(<NumberOfEvents />)
+
+    const EventListDOM = AppDOM.querySelector('#event-list');
+    const NOETextBox = NOEComponent.querySelector('#NOE-textbox')
+
+    await user.type(NOETextBox, "{backspace}{backspace}10")
+    const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem');   
+    
+    expect(allRenderedEventItems.length).toBe(NOETextBox.value)
   });
 });

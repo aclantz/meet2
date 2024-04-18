@@ -8,6 +8,7 @@ const NumberOfEvents = () => {
   return(
     <div id="number-of-events">
       <input
+        id="NOE-textbox"
         type="text"
         className="number-of-events"
         defaultValue={32}
