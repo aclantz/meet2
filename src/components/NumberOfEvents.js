@@ -1,17 +1,23 @@
-
 import { useState } from "react";
 
 
-const NumberOfEvents = () => {
-  // const [NOEValue, setNOEValue] = useState('32');
+const NumberOfEvents = ({ setCurrentNOE }) => {
+  const [NOEValue, setNOEValue] = useState("32");
+
+  const handleUserInput = (event) => {
+    const value = event.target.value;
+    setNOEValue(value);
+    setCurrentNOE(value);
+  }
 
   return(
     <div id="number-of-events">
       <input
         id="NOE-textbox"
         type="text"
-        className="number-of-events"
-        defaultValue={32}
+        className="number-of-events-input"
+        value={NOEValue}
+        onChange={handleUserInput}
       ></input>
     </div>
   )

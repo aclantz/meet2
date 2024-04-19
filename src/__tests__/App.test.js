@@ -64,14 +64,16 @@ describe('<App /> integration', () => {
   test('change the number of events rendered after user changes the NOE input', async () => {
     const user = userEvent.setup();
 
-    const NOEComponent = render(<NumberOfEvents />)
 
+    // const NOEComponent = render(<NumberOfEvents />)
+    // console.log(NOEComponent);
     const EventListDOM = AppDOM.querySelector('#event-list');
-    const NOETextBox = NOEComponent.querySelector('#NOE-textbox')
+    const NOETextBox = AppDOM.querySelector('#NOE-textbox')
+
 
     await user.type(NOETextBox, "{backspace}{backspace}10")
     const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem');   
     
-    expect(allRenderedEventItems.length).toBe(NOETextBox.value)
+    expect(allRenderedEventItems.length).toEqual(10);
   });
 });
