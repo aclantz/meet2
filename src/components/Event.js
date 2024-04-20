@@ -13,13 +13,13 @@ const Event = ({ event }) => {
   }
 
   return (
-    <li>
-      <p>{event.summary}</p>
+    <li className="event">
+      <p><b>{event.summary}</b></p>
       <p>{event.start.dateTime}</p>
       <p>{event.location}</p>
-      <button onClick={handleShowDetailsClick}>Show Details</button>
+      <button onClick={handleShowDetailsClick} className="details-btn">Show Details</button>
       {showDetails ? <div id="event-details">
-        <button onClick={handleHideDetailsClick}>Hide Details</button>
+        <button onClick={handleHideDetailsClick} className="details-btn">Hide Details</button>
       </div> : null}
     </li>
   );
