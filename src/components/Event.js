@@ -19,6 +19,7 @@ const Event = ({ event }) => {
       <p>{event.location}</p>
       <button onClick={handleShowDetailsClick} className="details-btn">Show Details</button>
       {showDetails ? <div id="event-details">
+        <p>{event.description}</p>
         <button onClick={handleHideDetailsClick} className="details-btn">Hide Details</button>
       </div> : null}
     </li>
