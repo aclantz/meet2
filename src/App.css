@@ -112,3 +112,12 @@ input[type="number"] {
   color: var(--primary);
   font-size: 14px;
 }
+
+/* added for Alert styling, exercise 4.8 */
+.alerts-container {
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  width: 250px;
+  z-index: 1000;
+}
