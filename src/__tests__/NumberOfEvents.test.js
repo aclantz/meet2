@@ -8,7 +8,7 @@ describe('<NumberOfEvents /> component', () => {
   let NOEComponent;
 
   beforeEach(() => {
-    NOEComponent = render(<NumberOfEvents setCurrentNOE={() => {}} />);
+    NOEComponent = render(<NumberOfEvents setCurrentNOE={() => {}} setErrorAlert={() => {}} />);
   });
 
   test('NumberOfEvents has a text box', () => {

@@ -11,7 +11,7 @@ defineFeature(feature, test => {
 
   beforeEach(() => {
     setCurrentNOE = jest.fn();
-    render(<NumberOfEvents setCurrentNOE={setCurrentNOE} />);
+    render(<NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={() => {}} />);
   });
 
   test('When user hasn’t specified a number, 32 events are shown by default', ({ given, when, then }) => {

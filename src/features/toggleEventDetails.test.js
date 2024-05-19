@@ -67,11 +67,9 @@ defineFeature(feature, test => {
     });
 
     and('an event is displayed with event details shown', () => {
-
     });
 
     and('the "Hide Details" button is visible', () => {
-
     });
 
     when('the user clicks the "Hide Details" button', () => {
@@ -84,7 +82,6 @@ defineFeature(feature, test => {
     });
 
     and('the "Hide Details" button is replaced with a "Show Details" button', () => {
-
     })
   });
 });
