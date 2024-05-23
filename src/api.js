@@ -35,6 +35,11 @@ export const getEvents = async () => {
     return mockData;
   }
   //if running on server (github pages) return API
+  if (!navigator.onLine) {
+    const events = localStorage.getItem("lastEvents");
+    // NProgress.done();
+    return events?JSON.parse(events):[];
+  }
   const token = await getAccessToken();
   if (token) {
     removeQuery(); //remove unnecessary query parameters (defined below)**
@@ -42,6 +47,8 @@ export const getEvents = async () => {
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
+      // NProgress.done()
+      localStorage.setItem("lastEvents", JSON.stringify(result.events));
       return result.events;
     } else return null; 
   }
