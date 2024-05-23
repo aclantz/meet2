@@ -1,5 +1,5 @@
 // exercise 4.4, Full_stack Immersion
-
+// import NProgress from "nprgoress";
 import mockData from './mock-data';
 
 /**
@@ -28,7 +28,7 @@ const checkToken = async (accessToken) => {
 //This function will fetch the list of all events 
 export const getEvents = async () => {
   //if running on localhost return mockData
-  // NProgress.start();
+  // NProgress.start(); //adds progress bar
 
   if (window.location.href.startsWith('http://localhost')) {
     // NProgress.done();
