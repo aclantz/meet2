@@ -4,6 +4,8 @@ import { getEvents, extractLocations } from "./api";
 import EventList from "./components/EventList";
 import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
+import CityEventsChart from "./components/CityEventsChart";
+import EventGenresChart from "./components/EventGenresChart";
 import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
 
 import "./App.css";
@@ -19,9 +21,9 @@ const App = () => {
 
   useEffect(() => {
     if (navigator.onLine) {
-      setWarningAlert("")
+      setWarningAlert("");
     } else {
-      setWarningAlert("You are offline and viewing cached data")
+      setWarningAlert("You are offline and viewing cached data");
     }
     fetchData();
   }, [currentCity, currentNOE]);
@@ -39,6 +41,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1 className="title">Meet App</h1>
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}{" "}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
@@ -54,6 +57,10 @@ const App = () => {
         setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert}
       />
+      <div className="charts-container">
+        <EventGenresChart events={events} />
+        <CityEventsChart allLocations={allLocations} events={events} />
+      </div>
       <EventList events={events} />
     </div>
   );

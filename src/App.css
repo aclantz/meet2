@@ -49,6 +49,10 @@ input[type="number"] {
   margin-bottom: 20px;
 }
 
+.title {
+  color: var(--primary)
+}
+
 .city {
   width: 250px;
 }
@@ -110,10 +114,6 @@ input[type="number"] {
   color: white;
 }
 
-.details-btn > details-btn:hover {
-  background-color: var(--secondary);
-}
-
 .number-of-events-label {
   color: var(--primary);
   font-size: 14px;
@@ -126,4 +126,16 @@ input[type="number"] {
   left: 20px;
   width: 250px;
   z-index: 1000;
+}
+
+/* added for chart grid layout 4.10 */
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
 }
