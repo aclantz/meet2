@@ -1,5 +1,5 @@
 // exercise 4.4, Full-Stack Immersion
-
+import moment from 'moment'; //date time format
 import { useState } from "react";
 
 const Event = ({ event }) => {
@@ -15,7 +15,7 @@ const Event = ({ event }) => {
   return (
     <li className="event">
       <p><b>{event.summary}</b></p>
-      <p>{event.start.dateTime}</p>
+      <p>{moment(event.start).format('MMMM Do YYYY, h:mm:ss a')}</p> 
       <p>{event.location}</p>
       <button onClick={handleShowDetailsClick} className="details-btn">Show Details</button>
       {showDetails ? <div id="event-details">
@@ -27,3 +27,4 @@ const Event = ({ event }) => {
 };
 
 export default Event;
+
