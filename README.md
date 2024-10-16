@@ -6,6 +6,9 @@ To build a serverless, progressive web application (PWA) with React using a
 test-driven development (TDD) technique. The application uses the Google
 Calendar API to fetch upcoming events.
 
+## Links
+Live Site: https://aclantz.github.io/meet2/
+
 ## Requirements
 ### Key Features:
 - Filter Events by City.
@@ -112,5 +115,8 @@ Scenario 12: Display Charts Visualizing Event Details
   - *When* they navigate to the charts section 
   - *Then* visualizations representing event details should be displayed 
 
-  ## Serverless Functions
+## Serverless Functions
 This application can use serverless functions to manage data processing, user experience, and token management. Allowing it to scale as needed, simplify the building process by removing the need to build an entire backend server, and remaining more cost effective.  
+
+## About
+Hi! this is Alex, I am an emerging web developer and this project was part of my Full-Stack Web Development course with CareerFoundry. If you are curious or have more questions for me check out my portfolio for contact information. https://linktr.ee/alexlantz
